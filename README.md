@@ -80,7 +80,10 @@ $xmlMaster->save('./test.xml', [
 /**
  * Get error message.
  *
- * Output: 'Any error message.'
+ * Output: [
+ *  '[INFO] Message ...',
+ *  '[ERROR] Message ...'
+ * ]
  */
 $xmlMaster->getError();
 ```
