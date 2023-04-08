@@ -56,7 +56,7 @@ $xmlMaster->setItemName('item');
  *   </user>
  * </root>
  */
-$xmlMaster->generate([
+$xmlMaster->convert([
     'user' => [
         'name' => 'Jerry Chen',
         'email' => 'ordinary9843@gmail.com',

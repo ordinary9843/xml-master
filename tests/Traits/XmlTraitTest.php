@@ -35,10 +35,10 @@ class XmlTraitTest extends TestCase
         $this->assertEquals('<root/>', $this->createElement('<root/>'));
         $this->assertEquals('<root/>', $this->createElement('<root/>/>'));
         $this->assertEquals('<root/>', $this->createElement('root/>'));
-        $this->assertEquals('<root-test/>', $this->createElement('root test'));
-        $this->assertEquals('<root-test/>', $this->createElement('root-test'));
-        $this->assertEquals('<root-test/>', $this->createElement('<root-test>'));
-        $this->assertEquals('<root-test/>', $this->createElement('<root-test/>'));
+        $this->assertEquals('<root_test/>', $this->createElement('root test'));
+        $this->assertEquals('<root_test/>', $this->createElement('root_test'));
+        $this->assertEquals('<root_test/>', $this->createElement('<root_test>'));
+        $this->assertEquals('<root_test/>', $this->createElement('<root_test/>'));
     }
 
     /**
@@ -48,7 +48,7 @@ class XmlTraitTest extends TestCase
     {
         $this->assertEquals('item', $this->normalizeItemName('0', 'item'));
         $this->assertEquals('test', $this->normalizeItemName('1', 'test'));
-        $this->assertEquals('test-item', $this->normalizeItemName('test item', 'item'));
-        $this->assertEquals('test-item', $this->normalizeItemName('test-item', 'item'));
+        $this->assertEquals('test_item', $this->normalizeItemName('test item', 'item'));
+        $this->assertEquals('test_item', $this->normalizeItemName('test_item', 'item'));
     }
 }

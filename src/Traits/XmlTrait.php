@@ -27,7 +27,7 @@ trait XmlTrait
      */
     public function createElement(string $element): string
     {
-        return '<' . preg_replace(['/\s+/', "/[^A-Za-z0-9-]/"], ['-', ''], $element) . '/>';
+        return '<' . preg_replace(['/\s+/', "/[^A-Za-z0-9_]/"], ['_', ''], $element) . '/>';
     }
 
     /**
@@ -40,6 +40,6 @@ trait XmlTrait
     {
         (is_numeric($itemName)) && $itemName = $default;
 
-        return preg_replace('/\s+/', '-', $itemName);
+        return preg_replace('/\s+/', '_', $itemName);
     }
 }

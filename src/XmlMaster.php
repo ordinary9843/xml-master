@@ -52,7 +52,7 @@ class XmlMaster extends Master
      * 
      * @return string
      */
-    public function generate(array $array, string $element = null): string
+    public function convert(array $array, string $element = null): string
     {
         try {
             if (empty($array)) {
@@ -78,6 +78,6 @@ class XmlMaster extends Master
      */
     public function save(string $filePath, array $array, string $element = null): void
     {
-        @file_put_contents($filePath, $this->processXml($this->generate($array, $element)));
+        @file_put_contents($filePath, $this->processXml($this->convert($array, $element)));
     }
 }

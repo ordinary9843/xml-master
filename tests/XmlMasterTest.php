@@ -24,7 +24,7 @@ class XmlMasterTest extends TestCase
     /**
      * @return void
      */
-    public function testGenerate(): void
+    public function testConvert(): void
     {
         $array = [
             'user' => [
@@ -41,8 +41,12 @@ class XmlMasterTest extends TestCase
                 'https://github.com/ordinary9843/xml-master'
             ],
         ];
-        $this->assertEquals('<?xmlversion="1.0"encoding="UTF-8"?><root><user><name>JerryChen</name><email>ordinary9843@gmail.com</email><title>SortwareEngineer</title><website>https://github.com/ordinary9843</website><skills><item>PHP</item><item>NodeJS</item></skills></user><side-projects><item>https://github.com/ordinary9843/ghostscript</item><item>https://github.com/ordinary9843/meta-master</item><item>https://github.com/ordinary9843/html-master</item><item>https://github.com/ordinary9843/xml-master</item></side-projects></root>', str_replace([' ', "\n"], '', $this->xmlMaster->generate($array)));
-        $this->assertEquals('<?xmlversion="1.0"encoding="UTF-8"?><root><item>[ERROR]Arraycontentcannotbeempty</item></root>', str_replace([' ', "\n"], '', $this->xmlMaster->generate([])));
+        $xml = $this->xmlMaster->convert($array);
+        $data = simplexml_load_string($xml);
+        $this->assertTrue(isset($data->user));
+        $this->assertTrue(isset($data->side_projects));
+        $this->assertEquals('<?xmlversion="1.0"encoding="UTF-8"?><root><user><name>JerryChen</name><email>ordinary9843@gmail.com</email><title>SortwareEngineer</title><website>https://github.com/ordinary9843</website><skills><item>PHP</item><item>NodeJS</item></skills></user><side_projects><item>https://github.com/ordinary9843/ghostscript</item><item>https://github.com/ordinary9843/meta-master</item><item>https://github.com/ordinary9843/html-master</item><item>https://github.com/ordinary9843/xml-master</item></side_projects></root>', str_replace([' ', "\n"], '', $xml));
+        $this->assertEquals('<?xmlversion="1.0"encoding="UTF-8"?><root><item>[ERROR]Arraycontentcannotbeempty</item></root>', str_replace([' ', "\n"], '', $this->xmlMaster->convert([])));
     }
 
     /**

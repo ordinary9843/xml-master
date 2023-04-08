@@ -46,7 +46,7 @@ class MasterTest extends TestCase
      */
     public function testItemName(): void
     {
-        $itemName = 'test-item';
+        $itemName = 'test_item';
         $this->master->setItemName($itemName);
         $this->assertEquals($itemName, $this->master->getItemName());
     }
