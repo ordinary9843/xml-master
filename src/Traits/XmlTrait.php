@@ -2,10 +2,53 @@
 
 namespace Ordinary9843\Traits;
 
+use Ordinary9843\Constants\XmlMasterConstant;
 use SimpleXMLElement;
 
 trait XmlTrait
 {
+    /** @var string */
+    private $version = XmlMasterConstant::XML_VERSION;
+
+    /** @var string */
+    private $encoding = XmlMasterConstant::XML_ENCODING;
+
+    /**
+     * @param string $version
+     * 
+     * @return void
+     */
+    public function setVersion(string $version): void
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion(): string
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param string $encoding
+     * 
+     * @return void
+     */
+    public function setEncoding(string $encoding): void
+    {
+        $this->encoding = $encoding;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEncoding(): string
+    {
+        return $this->encoding;
+    }
+
     /**
      * @param string $version
      * @param string $encoding
@@ -32,13 +75,12 @@ trait XmlTrait
 
     /**
      * @param string $itemName
-     * @param string $default
      * 
      * @return string
      */
-    public function normalizeItemName(string $itemName, string $default): string
+    public function normalizeItemName(string $itemName): string
     {
-        (is_numeric($itemName)) && $itemName = $default;
+        (is_numeric($itemName)) && $itemName = 'item';
 
         return preg_replace('/\s+/', '_', $itemName);
     }

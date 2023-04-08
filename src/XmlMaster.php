@@ -20,7 +20,7 @@ class XmlMaster extends Master
     private function processArray(array $array, SimpleXMLElement $xml): SimpleXMLElement
     {
         foreach ($array as $key => $value) {
-            $key = $this->normalizeItemName($key, $this->getItemName());
+            $key = $this->normalizeItemName($key);
             if (is_array($value)) {
                 $this->processArray($value, $xml->addChild($key));
             } else {

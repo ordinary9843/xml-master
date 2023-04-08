@@ -39,9 +39,6 @@ $xmlMaster->setVersion('1.0');
 // Set XML encoding type.
 $xmlMaster->setEncoding('UTF-8');
 
-// Set default sub-item name (applies only to numeric array type sub-items).
-$xmlMaster->setItemName('item');
-
 /**
  * Array conversion to XML.
  *
