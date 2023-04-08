@@ -34,13 +34,13 @@ use Ordinary9843\XmlMaster;
 $xmlMaster = new XmlMaster();
 
 // Set XML version.
-$metaMaster->setVersion('1.0');
+$xmlMaster->setVersion('1.0');
 
 // Set XML encoding type.
-$metaMaster->setEncoding('UTF-8');
+$xmlMaster->setEncoding('UTF-8');
 
 // Set default sub-item name (applies only to numeric array type sub-items).
-$metaMaster->setItemName('item');
+$xmlMaster->setItemName('item');
 
 /**
  * Array conversion to XML.
@@ -56,7 +56,7 @@ $metaMaster->setItemName('item');
  *   </user>
  * </root>
  */
-$metaMaster->generate([
+$xmlMaster->generate([
     'user' => [
         'name' => 'Jerry Chen',
         'email' => 'ordinary9843@gmail.com',
@@ -68,7 +68,7 @@ $metaMaster->generate([
 /**
  * Convert array to XML and save the result.
  */
-$metaMaster->save('./test.xml', [
+$xmlMaster->save('./test.xml', [
     'user' => [
         'name' => 'Jerry Chen',
         'email' => 'ordinary9843@gmail.com',
@@ -82,7 +82,7 @@ $metaMaster->save('./test.xml', [
  *
  * Output: 'Any error message.'
  */
-$metaMaster->getError();
+$xmlMaster->getError();
 ```
 
 ## Testing
